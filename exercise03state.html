@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex3state</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+    
+    <script type="text/babel">
+    
+    var Counter = React.createClass({
+        getInitialState: function(){
+            return {
+                msg : 0
+            };
+        },
+        click : function(){
+            this.setState({
+                msg : this.state.msg + 1
+            });
+        },
+        render : function(){ 
+            console.log("render");
+            return (
+                <div>
+                    <button onClick={this.click}>click</button>
+                    <p>当前点击次数：{this.state.msg}</p>
+                </div>
+            );
+        }
+    });
+    var Counter2 = React.createClass({
+        getInitialState: function(){
+            return {
+                msg : 0
+            };
+        },
+        click : function(){
+            this.setState({
+                msg : this.state.msg += 1
+            });
+        },
+        render : function(){ 
+            console.log("render2");
+            return (
+                <div>
+                    <button onClick={this.click}>click</button>
+                    <p>当前点击次数：{this.state.msg}</p>
+                </div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <div>
+            <Counter/>
+            <Counter2/>
+        </div>
+       ,
+        document.getElementById("app")
+    )
+    </script>
+
+</body>
+</html>
