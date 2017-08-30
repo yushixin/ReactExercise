@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex4-props</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="react-15.3.1/build/react.js"></script>
+    <script src="react-15.3.1/build/react-dom.js"></script>
+    <script src="react-15.3.1/browser.js"></script>
+    <script type="text/babel">
+    var Msg = React.createClass({
+        render : function(){
+            var data  = "hai";
+            var arr = [ 1 , 2 , 3 ];
+            return (
+                <SubMsg str={data} arr={arr}/>
+            );
+        }
+    });
+    var SubMsg = React.createClass({
+        render : function(){
+            var msgArr = [];
+            this.props.arr.forEach(function(elem, index){
+                msgArr.push(<div>{elem}</div>);
+            });
+            return (
+                <div>{msgArr}</div>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Msg/>,
+        document.getElementById("app")
+    )
+    </script>
+</body>
+</html>
